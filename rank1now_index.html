@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Rank1Now helps people list and rank businesses, websites, products and services.">
+<title>Rank1Now | Business Ranking</title>
+<style>
+:root{--blue:#1266f1;--navy:#10203d;--muted:#64748b;--line:#e4eaf3;--bg:#f5f8fd;--green:#07884d}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--navy)}
+header{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:15px 4vw;background:#fff;border-bottom:1px solid var(--line)}
+.brand{font-weight:950;font-size:25px;letter-spacing:-1px}.brand span{color:var(--blue)}.tag{font-size:11px;color:var(--muted);font-weight:700}
+nav{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;font-weight:750}nav a{color:inherit;text-decoration:none}
+button{border:0;cursor:pointer;font-weight:800;border-radius:10px;padding:11px 15px;background:var(--blue);color:white}button:focus,input:focus,select:focus,textarea:focus{outline:3px solid #a9cbff;outline-offset:1px}
+.wrap{max-width:1400px;margin:auto;padding:22px 3vw}.hero{background:linear-gradient(115deg,#eaf5ff,#f7fbff);border-radius:22px;padding:28px;display:grid;grid-template-columns:1.5fr .8fr;gap:15px;align-items:center}
+h1{font-size:clamp(28px,3vw,44px);line-height:1.1;margin:0 0 13px;letter-spacing:-1.4px}.blue{color:var(--blue)}.hero p{font-size:17px;color:#536783;max-width:650px;line-height:1.5}.pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;font-size:12px;font-weight:800}.pills span{background:#fff;padding:10px 13px;border-radius:12px;border:1px solid #e2ecfb}.hero-art{font-size:100px;text-align:center}
+.layout{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(290px,.8fr);gap:20px;margin-top:20px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 4px 18px #183b6810}.card h2{margin:0;font-size:22px}.sub{color:var(--muted);font-size:13px;margin:6px 0 15px}.topline{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.filters{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0}.filters button{background:white;color:#40516b;border:1px solid var(--line);padding:8px 13px}.filters button.active{background:var(--blue);color:white;border-color:var(--blue)}
+.tablehead,.business{display:grid;grid-template-columns:36px minmax(140px,1fr) 90px 90px 82px;gap:10px;align-items:center}.tablehead{font-size:12px;font-weight:900;border-bottom:1px solid var(--line);padding:12px 5px;color:#40516b}.business{padding:13px 5px;border-bottom:1px solid #edf1f7}.business:first-child{border:1px solid #ffce65;border-radius:12px;margin-top:7px}.rank{font-weight:900;text-align:center;font-size:18px}.bizname{font-weight:850;font-size:14px;overflow-wrap:anywhere}.bizurl{font-size:12px;color:var(--blue);overflow-wrap:anywhere}.desc{font-size:11px;color:var(--muted);margin-top:3px}.category{font-size:11px;font-weight:800;background:#eef5ff;color:#1554a5;padding:7px;border-radius:8px;text-align:center}.amount{font-weight:900;color:var(--green);font-size:16px}.amount small{display:block;font-size:11px;color:var(--muted);font-weight:500}.bidbtn{padding:10px 9px;font-size:12px}
+.side{display:flex;flex-direction:column;gap:16px}.formgroup{margin:13px 0}.formgroup label{display:block;font-size:12px;font-weight:800;margin-bottom:6px}input,select,textarea{width:100%;padding:12px;border:1px solid #d6dfeb;border-radius:9px;font:inherit;font-size:13px;background:white}textarea{min-height:75px;resize:vertical}.full{width:100%}.greenbtn{background:var(--green)}.note{font-size:11px;color:var(--muted);line-height:1.5}.howrow{display:flex;gap:10px;margin:12px 0;font-size:12px}.step{min-width:28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:900}.notice{background:#fff8e7;border:1px solid #f5d990;padding:12px 14px;border-radius:12px;font-size:12px;line-height:1.5;margin-top:18px;color:#704c00}.toast{display:none;padding:10px;border-radius:9px;background:#e9fbf1;color:#087443;font-size:12px;margin-top:10px}.empty{padding:25px;text-align:center;color:var(--muted)}footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.hero{grid-template-columns:1fr}.hero-art{display:none}nav{order:3;width:100%;overflow:auto}.tablehead{display:none}.business{grid-template-columns:30px minmax(100px,1fr) 78px;gap:8px}.business .category{display:none}.business .bidbtn{grid-column:3;grid-row:1}.business .amount{grid-column:3;grid-row:1;align-self:end;margin-top:35px;font-size:14px}.bizname{font-size:13px}}
+</style>
+</head>
+<body>
+<header>
+ <div><div class="brand">🏆 Rank<span>1Now</span></div><div class="tag">LIST YOUR BUSINESS · CLIMB THE RANKS</div></div>
+ <nav><a href="#home">Home</a><a href="#leaderboard">Leaderboard</a><a href="#submit">Submit Business</a><a href="#how">How It Works</a></nav>
+ <button onclick="document.querySelector('#submit').scrollIntoView({behavior:'smooth'})">Get Listed</button>
+</header>
+<main class="wrap" id="home">
+ <section class="hero"><div><h1>Get noticed. Climb the ranks. <span class="blue">Start at ₹1.</span></h1><p>List a business, website, product or service. Explore this ranking prototype and test bids without spending money.</p><div class="pills"><span>⚡ Interactive demo</span><span>🏆 Ranked leaderboard</span><span>🌍 Any business</span><span>📈 Simple bidding</span></div></div><div class="hero-art" aria-hidden="true">🏪👑📈</div></section>
+ <div class="layout">
+  <section class="card" id="leaderboard"><div class="topline"><div><h2>🏆 Leaderboard</h2><div class="sub">Sorted by total demo bid amount, highest first.</div></div><span class="note">🟢 Browser demo</span></div>
+   <div class="filters" id="filters"><button class="active" data-cat="All">All</button><button data-cat="Business">Business</button><button data-cat="Website">Website</button><button data-cat="Product">Product</button><button data-cat="Service">Service</button><button data-cat="Creator">Creator</button></div>
+   <div class="tablehead"><span>#</span><span>Business / Website</span><span>Category</span><span>Total bids</span><span>Action</span></div><div id="rows" aria-live="polite"></div>
+   <div class="notice"><b>Demo only:</b> Sample entries and simulated bids. No real money is collected. Data is stored only in this browser and is not shared with other visitors.</div>
+  </section>
+  <aside class="side">
+   <section class="card" id="submit"><h2>➕ Submit your business</h2><div class="sub">Free listing in this prototype.</div>
+    <form id="businessForm">
+     <div class="formgroup"><label for="name">Business name *</label><input id="name" required maxlength="60" placeholder="e.g. My Great Business"></div>
+     <div class="formgroup"><label for="url">Website URL (optional)</label><input id="url" type="url" placeholder="https://example.com"></div>
+     <div class="formgroup"><label for="description">Short description *</label><textarea id="description" required maxlength="120" placeholder="What makes your business useful?"></textarea></div>
+     <div class="formgroup"><label for="category">Category *</label><select id="category" required><option value="">Select category</option><option>Business</option><option>Website</option><option>Product</option><option>Service</option><option>Creator</option></select></div>
+     <button class="full" type="submit">List My Business (Free)</button>
+    </form><div class="toast" id="submitToast" role="status"></div>
+   </section>
+   <section class="card" style="background:#fff5f8;border-color:#ffe0e8"><h2>⚡ Place a demo bid</h2><div class="sub">Test how a bid affects rank. No checkout.</div>
+    <div class="formgroup"><label for="bidListing">Choose listing</label><select id="bidListing"></select></div>
+    <div class="formgroup"><label for="bidAmount">Bid amount (₹) *</label><input type="number" id="bidAmount" min="1" step="1" value="1"></div>
+    <button class="full greenbtn" id="placeBid" type="button">⚡ Simulate Bid</button><div class="note" style="margin-top:8px">Minimum demo bid: ₹1. No payment will be charged.</div><div class="toast" id="bidToast" role="status"></div>
+   </section>
+   <section class="card" id="how"><h2>🧭 How it works</h2>
+    <div class="howrow"><span class="step">1</span><div><b>Submit a listing</b><br><span class="note">Add your business or website for free.</span></div></div>
+    <div class="howrow"><span class="step">2</span><div><b>Place a demo bid</b><br><span class="note">Try any whole-rupee amount.</span></div></div>
+    <div class="howrow"><span class="step">3</span><div><b>See the rank change</b><br><span class="note">Higher total demo bids appear higher.</span></div></div>
+    <div class="howrow"><span class="step">4</span><div><b>Prepare for launch</b><br><span class="note">A secure backend and payment gateway are needed for real transactions.</span></div></div>
+   </section>
+  </aside>
+ </div>
+</main>
+<footer>Rank1Now · Front-end prototype · No real payments · No shared live database</footer>
+<script>
+const seed=[
+ {name:"Tasty Pizza House",url:"https://example.com",description:"Best pizza in town | Free home delivery",category:"Business",total:152,bids:152},
+ {name:"Sharma Mobile Store",url:"https://example.com",description:"Latest mobiles at great prices",category:"Product",total:141,bids:141},
+ {name:"FitLife Gym",url:"https://example.com",description:"Join now for a healthier you",category:"Service",total:120,bids:120},
+ {name:"Dream Homes Real Estate",url:"https://example.com",description:"Buy | Sell | Rent properties",category:"Business",total:98,bids:98},
+ {name:"TechWorld Solutions",url:"https://example.com",description:"IT services and web development",category:"Website",total:90,bids:90},
+ {name:"Style Salon",url:"https://example.com",description:"Hair | Beauty | Makeover",category:"Service",total:85,bids:85},
+ {name:"Bright Future Coaching",url:"https://example.com",description:"Learn, practise and grow",category:"Creator",total:70,bids:70}
+];
+let listings=seed.map((x,i)=>({...x,id:"seed-"+i})),active="All",nextId=1;
+const $=id=>document.getElementById(id);
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function render(){
+ const sorted=[...listings].sort((a,b)=>b.total-a.total||a.name.localeCompare(b.name));
+ const visible=active==="All"?sorted:sorted.filter(x=>x.category===active);
+ $("rows").innerHTML=visible.length?visible.map(x=>{const rank=sorted.findIndex(y=>y.id===x.id)+1;const badge=rank<=3?["🥇","🥈","🥉"][rank-1]:rank;return `<div class="business"><div class="rank">${badge}</div><div><div class="bizname">${esc(x.name)}</div><div class="bizurl">${esc(x.url||"No website provided")}</div><div class="desc">${esc(x.description)}</div></div><div class="category">${esc(x.category)}</div><div class="amount">₹${x.total}<small>${x.bids} demo bids</small></div><button class="bidbtn" type="button" data-bid="${esc(x.id)}">Bid Now</button></div>`}).join(""):'<div class="empty">No listings in this category yet.</div>';
+ $("bidListing").innerHTML=sorted.map(x=>`<option value="${esc(x.id)}">${esc(x.name)} (₹${x.total})</option>`).join("");
+ document.querySelectorAll("[data-bid]").forEach(b=>b.addEventListener("click",()=>{$("bidListing").value=b.dataset.bid;$("bidAmount").focus();$("bidAmount").scrollIntoView({behavior:"smooth",block:"center"})}));
+}
+function toast(id,msg){const el=$(id);el.textContent=msg;el.style.display="block"}
+document.querySelectorAll("#filters button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("#filters button").forEach(c=>c.classList.remove("active"));b.classList.add("active");active=b.dataset.cat;render()}));
+$("businessForm").addEventListener("submit",e=>{
+ e.preventDefault();const name=$("name").value.trim(),url=$("url").value.trim(),description=$("description").value.trim(),category=$("category").value;
+ if(listings.some(x=>x.name.toLowerCase()===name.toLowerCase())){toast("submitToast","A listing with that name already exists.");return}
+ listings.push({id:"user-"+nextId++,name,url,description,category,total:0,bids:0});e.target.reset();toast("submitToast","Listing added to this browser's demo leaderboard.");render();
+});
+$("placeBid").addEventListener("click",()=>{
+ const x=listings.find(y=>y.id===$("bidListing").value),amount=Number($("bidAmount").value);
+ if(!x){toast("bidToast","Please choose a listing.");return}
+ if(!Number.isSafeInteger(amount)||amount<1){toast("bidToast","Enter a whole number of ₹1 or more.");return}
+ x.total+=amount;x.bids+=1;const rank=[...listings].sort((a,b)=>b.total-a.total||a.name.localeCompare(b.name)).findIndex(y=>y.id===x.id)+1;
+ toast("bidToast",`Demo bid ₹${amount} added. ${x.name} is now #${rank}. No money was charged.`);render();
+});
+render();
+</script>
+</body>
+</html>
